@@ -1,0 +1,13 @@
+body {
+    font: 1.2em Courier New;
+    font-weight: 700;
+    color: #665078;
+    background-color: #f3eaf4;
+}
+
+p {
+    margin: 5vw 20vw 5vw 20vw;
+    white-space: pre-wrap;
+    /* text-wrap: inherit; */
+    line-height: 1.4em;
+}
