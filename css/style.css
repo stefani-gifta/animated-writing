@@ -3,6 +3,7 @@ body {
     font-weight: 700;
     color: #665078;
     background-color: #f3eaf4;
+    overflow: scroll;
 }
 
 p {
@@ -10,4 +11,9 @@ p {
     white-space: pre-wrap;
     /* text-wrap: inherit; */
     line-height: 1.4em;
+}
+
+::-webkit-scrollbar {
+    width: 0; 
+    background: transparent;
 }
