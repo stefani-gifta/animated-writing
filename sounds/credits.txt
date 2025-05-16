@@ -1,0 +1,11 @@
+cheers: https://pixabay.com/sound-effects/crowd-laughing-07-120585/
+hit: https://pixabay.com/sound-effects/thump-on-carpet-107101/
+shrieking: https://pixabay.com/sound-effects/oboe-high-pitch-97105/
+Year: https://pixabay.com/sound-effects/new-year-fireworks-sound2-180202/
+clinking: https://pixabay.com/sound-effects/080325-glass-clinking-2-87822/
+bumping: https://pixabay.com/sound-effects/bass-drop-huge-6356/
+rained: https://pixabay.com/sound-effects/rain-338844/
+end: https://pixabay.com/sound-effects/string-echo-87215/
+walked: https://pixabay.com/sound-effects/walking-on-concrete-ver-2-268513/
+ICU: https://pixabay.com/sound-effects/car-horn-6408/
+kids: https://pixabay.com/sound-effects/giggling-6799/
