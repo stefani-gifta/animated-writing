@@ -4,16 +4,19 @@ This is a simple JavaScript-based typewriter animation with sound effects and au
 
 ## Branches
 
-- `with-effects` (default): Typewriter with added word-triggered sound
+- `with-effects` (default): Typewriter animation with welcome page and sound effects
 - `main`: Basic typewriter
 
 ## Features
 
+Basic typewriter:
 - Smooth typing animation with fade-in effect
 - Auto-scrolling as the text grows
 - Delays after punctuation for natural pacing
+
+Features added in `with-effects` branch:
 - Sound effects triggered by specific words
-- Triggers words highlighted on sound play
+- Trigger words highlighted on sound play
 
 ## How to Use
 
