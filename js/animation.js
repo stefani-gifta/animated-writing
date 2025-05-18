@@ -26,8 +26,8 @@ function typeNext() {
                 let duration = 0
                 sound.addEventListener('loadedmetadata', () => {
                     duration = sound.duration
+                    fadeIn(sound, duration)
                 })
-                fadeIn(sound, duration)
                 effectPlayed = 1
             }
             currentWord = ""
@@ -52,10 +52,11 @@ function fadeIn(audio, duration) {
     audio.volume = 0
     audio.play()
     let currentVolume = 0
-    const steps = (Math.max(duration/3, 1) * 100) // max 1 second fade in (100 * 10 = 1000 ms steps)
+    const steps = (Math.min(duration/3, 2) * 100) // max 2 second fade in (200 * 10 = 2000 ms steps)
+                                                    // but if duration is <1.5, take duration/3
 
     fadeInterval = setInterval(() => {
-        currentVolume += 0.1
+        currentVolume += 0.1 // 10 times
         if (currentVolume >= 1) {
             clearInterval(fadeInterval)
             currentVolume = 1
