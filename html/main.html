@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <title>Animated Writing Experience</title>
 <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/button.css">
 </head>
 <style>
     #welcome-page {
@@ -14,32 +15,13 @@
         flex-direction: column;
     }
 
-    #welcome-h1 {
+    #welcome-h1, #story-select, #start-button {
         animation: welcome-in 0.5s ease-in-out;
     }
 
     @keyframes welcome-in {
         0% { transform: translateY(-50vh); }
         100% { transform: translateY(0); }
-    }
-
-    #start-button {
-        animation: welcome-in 0.5s ease-in-out;
-        background: none;
-        font-size: 1em;
-        padding: 7px;
-        box-shadow: 5px 5px 0 1px black;
-        transition: 0.2s;
-    }
-
-    #start-button:hover {
-        box-shadow: 3px 3px 0 1px black;
-        transform: translateX(2px) translateY(2px);
-    }
-
-    #start-button:active {
-        box-shadow: none;
-        transform: translateX(5px) translateY(5px);
     }
 </style>
 <body>
@@ -48,5 +30,4 @@
         <button type="button" id="start-button" onclick="location.href='../html/typewriter.html'">Let's go</button>
     </div>
 </body>
-<script></script>
 </html>

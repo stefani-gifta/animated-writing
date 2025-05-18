@@ -1,10 +1,22 @@
-const div = document.getElementById("text")
-const text = div.textContent
-div.innerHTML = "" // clear container
+const selectDiv = document.getElementById("story-select")
+const textDiv = document.getElementById("text")
+
+var text = ""
 
 var i = 0
 var speed = 30 // ms per character (lesser, faster)
 var currentWord = ""
+
+selectDiv.addEventListener("change", () => {
+    const selected = selectDiv.value
+    text = selected ? stories[selected] : "No story selected"
+
+    i = 0
+    textDiv.innerHTML = "" // clear previous story
+    currentWord = ""
+    typeNext()
+})
+
 const nonLowerCaseWords = ["Year"]
 const soundEffects = {
     // trigger word: sound file name
@@ -36,14 +48,13 @@ const soundEffects = {
 }
 
 var wordStartIndex = 0
-
 function typeNext() {
-    div.classList.add("hide-after")
+    textDiv.classList.add("hide-after")
     if(i < text.length) {
         const span = document.createElement("span")
         span.textContent = text[i]
         span.classList.add("fade-in") // smooth typewriting
-        div.appendChild(span)
+        textDiv.appendChild(span)
         requestAnimationFrame(() => span.classList.add("show"))
 
         let effectPlayed = 0
@@ -56,8 +67,8 @@ function typeNext() {
                 currentWord = currentWord.toLowerCase() // don't lowercase the words in nonLowerCaseWords[]
             }
             if(soundEffects[currentWord]) {
-                for (let j = wordStartIndex; j < i; j++) { // highlight the word
-                    div.children[j].classList.add("highlight")
+                for(let j = wordStartIndex; j < i; j++) { // highlight the word
+                    textDiv.children[j].classList.add("highlight")
                 }
                 let sound = new Audio(`../sounds/${soundEffects[currentWord]}.mp3`)
                 let fadeInDuration = 0
@@ -66,8 +77,8 @@ function typeNext() {
                     fadeInDuration = Math.min(fadeInDuration/3, 2) // explained in fadeIn() function
                     fadeIn(sound, fadeInDuration)
                     setTimeout(() => {
-                        for (let j = wordStartIndex; j < i; j++) {
-                            div.children[j].classList.remove("highlight") // remove highlight while sound still playing
+                        for(let j = wordStartIndex; j < i; j++) {
+                            textDiv.children[j].classList.remove("highlight") // remove highlight while sound still playing
                         }
                     }, fadeInDuration * 500) // later add css transition too
                 })
@@ -77,27 +88,24 @@ function typeNext() {
         }
 
         i++
-        window.scrollBy(0, div.scrollHeight) // auto scroll
+        window.scrollBy(0, textDiv.scrollHeight) // auto scroll
         if(".,!?\"*—".includes(text[i-1]) || effectPlayed == 1) {
             setTimeout(typeNext, speed + 1000) // wait 1s after punctuation
         } else {
             setTimeout(typeNext, speed)
         }
     } else {
-        div.classList.remove("hide-after")
+        textDiv.classList.remove("hide-after")
     }
 }
 
-typeNext()
-
-let fadeInterval
+var fadeInterval
 function fadeIn(audio, fadeInDuration) {
     audio.volume = 0
     audio.play()
     let currentVolume = 0
     const steps = fadeInDuration * 100 // max 2 second fade in (2 * 100 * 10 = 2000 ms steps)
                                        // but if duration is <1.5, take duration/3
-
     fadeInterval = setInterval(() => {
         currentVolume += 0.1 // 10 times
         if (currentVolume >= 1) {

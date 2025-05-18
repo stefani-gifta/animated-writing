@@ -21,8 +21,7 @@ body {
 }
 
 #text {
-    margin: 0;
-    padding: 5vw 20vw 5vw 20vw;
+    padding: 1vw 20vw 5vw 20vw;
     white-space: pre-wrap;
     /* text-wrap: inherit; */
     line-height: 1.4em;
