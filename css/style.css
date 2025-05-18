@@ -1,11 +1,18 @@
+* {
+    box-sizing: border-box;
+    font-family: Courier New;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    width: 100%;
-    height: 100%;
-    font: 1.2em Courier New;
     font-weight: 700;
     color: #665078;
     background-color: #f3eaf4;
-    overflow: scroll;
+    font-size: 1.2em;
 }
 
 ::-webkit-scrollbar {
