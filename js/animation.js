@@ -5,6 +5,7 @@ div.innerHTML = "" // clear container
 var i = 0
 var speed = 30 // ms per character (lesser, faster)
 var currentWord = ""
+const nonLowerCaseWords = ["Year"]
 const soundEffects = {
     // trigger word: sound file name
   "cheers": "cheers",
@@ -12,7 +13,7 @@ const soundEffects = {
   "bump": "hit",
   "bumping": "hit",
   "shrieking": "highpitch",
-  "celebration": "fireworks",
+  "Year": "fireworks",
   "clinking": "clinking",
   "rained": "rain",
   "end": "end",
@@ -51,11 +52,14 @@ function typeNext() {
             currentWord += text[i]
         } else { // check current word
             console.log(currentWord)
-            if(soundEffects[currentWord.toLowerCase()]) {
+            if(!nonLowerCaseWords.includes(currentWord)) {
+                currentWord = currentWord.toLowerCase() // don't lowercase the words in nonLowerCaseWords[]
+            }
+            if(soundEffects[currentWord]) {
                 for (let j = wordStartIndex; j < i; j++) { // highlight the word
                     div.children[j].classList.add("highlight")
                 }
-                let sound = new Audio(`../sounds/${soundEffects[currentWord.toLowerCase()]}.mp3`)
+                let sound = new Audio(`../sounds/${soundEffects[currentWord]}.mp3`)
                 let fadeInDuration = 0
                 sound.addEventListener('loadedmetadata', () => {
                     fadeInDuration = sound.duration
