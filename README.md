@@ -13,6 +13,7 @@ This is a simple JavaScript-based typewriter animation with sound effects and au
 - Auto-scrolling as the text grows
 - Delays after punctuation for natural pacing
 - Sound effects triggered by specific words
+- Triggers words highlighted on sound play
 
 ## How to Use
 
