@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<title>Animated Writing Experience</title>
-<link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-  <div id="text">
 What happened to us? Well, let me tell you the story.
 
 *
@@ -108,7 +99,3 @@ We will never be able to be friends. Not when I have feelings. Late feelings tha
 Ah .... Now that I look back, it starts to click. Of course she did not reply to my lyric because she was already in a relationship.
 
 Now I get it. She sent me the sweet texts to make me stay, without ever meaning them, without a care about how it would affect me. I'd like to think it was right for me to walk away before she could permanently scar me.
-  </div>
-</body>
-<script src="../js/animation.js"></script>
-</html>

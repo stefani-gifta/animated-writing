@@ -35,5 +35,5 @@ git checkout with-effects  # or main
 
 ## Personal Note
 
-This mini project is special because it marks my return to finally writing again for personal fulfillment, after years of writing primarily for formal evaluation.
+This mini project is special because it marks my return to finally writing fictional stories for personal fulfillment again, after years of writing primarily for formal evaluation.
 It’s a creative experiment to bring words to life—literally—as I rediscover the joy of storytelling and rebuild a forgotten habit that once came naturally.

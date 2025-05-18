@@ -5,7 +5,36 @@ div.innerHTML = "" // clear container
 var i = 0
 var speed = 30 // ms per character (lesser, faster)
 var currentWord = ""
-const triggerWords = ["cheers", "hit", "shrieking", "Year", "clinking", "bumping", "rained", "end", "walked", "ICU", "kids"]
+const soundEffects = {
+    // trigger word: sound file name
+  "cheers": "cheers",
+  "hit": "whip",
+  "bump": "hit",
+  "bumping": "hit",
+  "shrieking": "highpitch",
+  "celebration": "fireworks",
+  "clinking": "clinking",
+  "rained": "rain",
+  "end": "end",
+  "walk": "footsteps",
+  "walked": "footsteps",
+  "icu": "ambulance",
+  "kids": "kids",
+  "ding": "notif",
+  "popped": "notif",
+  "honk": "honk",
+  "beep": "beep",
+  "beating": "heartbeat",
+  "click": "click",
+  "correct": "correct",
+  "shared": "swoosh",
+  "texted": "swoosh",
+  "sent": "swoosh",
+  "capture": "camera",
+  "screenshot": "camera"
+}
+
+var wordStartIndex = 0
 
 function typeNext() {
     div.classList.add("hide-after")
@@ -18,15 +47,25 @@ function typeNext() {
 
         let effectPlayed = 0
         if(/\w/.test(text[i])) { // if alphanumeric, append to current word
+            if(currentWord === "") wordStartIndex = i
             currentWord += text[i]
         } else { // check current word
             console.log(currentWord)
-            if(triggerWords.includes(currentWord)) {
-                let sound = new Audio(`../sounds/${currentWord}.mp3`)
-                let duration = 0
+            if(soundEffects[currentWord.toLowerCase()]) {
+                for (let j = wordStartIndex; j < i; j++) { // highlight the word
+                    div.children[j].classList.add("highlight")
+                }
+                let sound = new Audio(`../sounds/${soundEffects[currentWord.toLowerCase()]}.mp3`)
+                let fadeInDuration = 0
                 sound.addEventListener('loadedmetadata', () => {
-                    duration = sound.duration
-                    fadeIn(sound, duration)
+                    fadeInDuration = sound.duration
+                    fadeInDuration = Math.min(fadeInDuration/3, 2) // explained in fadeIn() function
+                    fadeIn(sound, fadeInDuration)
+                    setTimeout(() => {
+                        for (let j = wordStartIndex; j < i; j++) {
+                            div.children[j].classList.remove("highlight") // remove highlight while sound still playing
+                        }
+                    }, fadeInDuration * 500) // later add css transition too
                 })
                 effectPlayed = 1
             }
@@ -48,12 +87,12 @@ function typeNext() {
 typeNext()
 
 let fadeInterval
-function fadeIn(audio, duration) {
+function fadeIn(audio, fadeInDuration) {
     audio.volume = 0
     audio.play()
     let currentVolume = 0
-    const steps = (Math.min(duration/3, 2) * 100) // max 2 second fade in (200 * 10 = 2000 ms steps)
-                                                    // but if duration is <1.5, take duration/3
+    const steps = fadeInDuration * 100 // max 2 second fade in (2 * 100 * 10 = 2000 ms steps)
+                                       // but if duration is <1.5, take duration/3
 
     fadeInterval = setInterval(() => {
         currentVolume += 0.1 // 10 times
