@@ -1,10 +1,10 @@
 # Typewriter Text Animation with Sound Effects
 
-This is a simple JavaScript-based typewriter animation.
+This is a simple JavaScript-based typewriter animation with sound effects and automatic scrolling.
 
 ## Branches
 
-- `with-effects`: Typewriter with added word-triggered sound
+- `with-effects` (default): Typewriter with added word-triggered sound
 - `main`: Basic typewriter
 
 ## Features
@@ -16,7 +16,7 @@ This is a simple JavaScript-based typewriter animation.
 
 ## How to Use
 
-To see it in action, open `index.html` in your favorite browser.
+To see it in action, open `main.html` in your favorite browser.
 
 Steps:
 
@@ -31,7 +31,7 @@ cd animated-writing
 git checkout with-effects  # or main
 ```
 
-3. Open index.html
+3. Open main.html
 
 ## Personal Note
 
