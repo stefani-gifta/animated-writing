@@ -4,7 +4,7 @@ The idea is to bring words to life—literally—while I slowly rediscover the j
 
 [See it in action](https://stefani-gifta.github.io/animated-writing/html/main.html).
 
-> ⚠️ *Don't be surprised by the sound effects*
+> ⚠️ *Please don't be surprised by the sound effects*
 
 ## Branches
 
